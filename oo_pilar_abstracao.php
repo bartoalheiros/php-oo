@@ -1,21 +1,21 @@
 <?php
 
    //modelo
-   class Funcionario {
+   	class Funcionario {
         //atributos
-        public $nome = 'José';
-        public $telefone = '11 99999-8888';
-        public $numFilhos = 2;
+		public $nome = 'José';
+		public $telefone = '11 99999-8888';
+		public $numFilhos = 2;
 
 
-        //métodos
-        function resumirCadFunc() {
-          return 'Esse é o resumo do cadastro do funcionário';
-        }
+		//métodos
+		function resumirCadFunc() {
+			return "$this->nome possui $this->numFilhos filho(s).";
+		}
 
-        function modificarNumFilhos() {
-            //afetar um atributo do objeto
-        }
+		function modificarNumFilhos() {
+			//afetar um atributo do objeto
+		}
    }
 
    $y = new Funcionario();
