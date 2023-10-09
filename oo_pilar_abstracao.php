@@ -3,17 +3,20 @@
    //modelo
    class Funcionario {
         //atributos
-        public $nome = null;
-        public $telefone = null;
-        public $numFilhos = null;
+        public $nome = 'José';
+        public $telefone = '11 99999-8888';
+        public $numFilhos = 2;
 
 
         //métodos
         function resumirCadFunc() {
-
+          return 'Esse é o resumo do cadastro do funcionário';
         }
 
         function modificarNumFilhos() {
-            
+            //afetar um atributo do objeto
         }
    }
+
+   $y = new Funcionario();
+   echo $y->resumirCadFunc();
