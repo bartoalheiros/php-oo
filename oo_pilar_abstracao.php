@@ -3,10 +3,34 @@
    //modelo
    	class Funcionario {
         //atributos
-		private $nome = 'José';
-		public $telefone = '11 99999-8888';
-		public $numFilhos = 2;
+		public $nome = null;
+		public $telefone = null;
+		public $numFilhos = null;
 
+		//getters setters
+		function setNome($nome) {
+			$this->nome = $nome;
+		}
+
+		function setNumFilhos($numFilhos) {
+			$this->numFilhos = $numFilhos;
+		}
+
+		function setTelefone($telefone) {
+			$this->telefone = $telefone;
+		}
+
+		function getNome() {
+			return $this->nome;
+		}
+
+		function getNumFilhos() {
+			return $this->numFilhos;
+		}
+
+		function getTelefone() {
+			return $this->telefone;
+		}
 
 		//métodos
 		function resumirCadFunc() {
@@ -20,14 +44,13 @@
 	}
 
 	$y = new Funcionario();
-	echo $y->resumirCadFunc();
-	$y->modificarNumFilhos(3);
-	echo '<br />';
-	echo $y->resumirCadFunc();
-	echo '<hr />';
+	$y->setNome('José');
+	$y->setNumFilhos(2);
+	// echo $y->resumirCadFunc();
+	echo $y->getNome() . ' possui ' . $y->getNumFilhos() . ' filhos(s).';
 
-	$x = new Funcionario();
-	echo $x->resumirCadFunc();
 	echo '<br />';
-	$x->modificarNumFilhos(1);
-	echo $x->resumirCadFunc();
+	$x = new Funcionario();
+	$x->setNome('Maria');
+	$x->setNumFilhos(0);
+	echo $x->getNome() . ' possui ' . $x->getNumFilhos() . ' filhos(s).';
