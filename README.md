@@ -1,6 +1,6 @@
-##Apontamentos sobre POO com PHP
+## Apontamentos sobre POO com PHP
 
-###Construtores e destrutores
+### Construtores e destrutores
 
 São métodos especiais ou 'mágicos'. O Construtor ( __construct ) é sempre chamado quando
 ocorre a instanciação de um objeto, a partir de uma classe(modelo de objeto).
