@@ -5,20 +5,34 @@
         protected $sobrenome = 'Silva';
         public $humor = 'Feliz';
 
-        public function getSobrenome() {
-            return $this->sobrenome;
+        public function __get($attr) {
+            return $this->$attr;
+        }
+       
+        public function __set($attr, $value) {
+            $this->$attr = $value;
         }
 
-        public function setSobrenome($value) {
-            //regra de negócio     
-            if(strlen($value) >= 3) {
-                $this->sobrenome = $value;
+        private function executarMania() {
+            echo 'Assobiar';
+        }
+
+        protected function responder() {
+            echo 'Oi';
+        }
+
+        public function executarAcao() {
+            $x = rand(1, 10);
+
+            if($x >= 1 && $x <=8) {
+                $this->responder();
+            } else {
+                $this->executarMania();
             }
         }
+
     }
 
     $pai = new Pai();
-    echo $pai->getSobrenome();
-    $pai->setSobrenome('Oliveira');
-    echo '<br />';
-    echo $pai->getSobrenome();
+    // echo $pai->humor;
+    echo $pai->executarAcao();
