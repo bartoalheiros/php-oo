@@ -5,13 +5,13 @@
         protected $sobrenome = 'Silva';
         public $humor = 'Feliz';
 
-        public function __get($attr) {
-            return $this->$attr;
-        }
+        // public function __get($attr) {
+        //     return $this->$attr;
+        // }
        
-        public function __set($attr, $value) {
-            $this->$attr = $value;
-        }
+        // public function __set($attr, $value) {
+        //     $this->$attr = $value;
+        // }
 
         private function executarMania() {
             echo 'Assobiar';
@@ -33,6 +33,30 @@
 
     }
 
-    $pai = new Pai();
-    // echo $pai->humor;
-    echo $pai->executarAcao();
+    class Filho extends Pai {
+        public function getAtributo($attr) {
+            return $this->$attr;
+        }
+
+        public function setAtributo($attr, $value) {
+            $this->$attr = $value;
+        }
+
+    }
+
+    // $pai = new Pai();
+    // // echo $pai->humor;
+    // echo $pai->executarAcao();
+
+    $filho = new Filho();
+    echo '<pre>';
+    print_r($filho);
+    echo '</pre>';
+    echo $filho->getAtributo('nome');
+    echo '<br />';
+
+    $filho->setAtributo('nome','Pereira');
+    echo '<pre>';
+    print_r($filho);
+    echo '</pre>';
+    echo $filho->getAtributo('nome');
