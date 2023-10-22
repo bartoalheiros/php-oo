@@ -6,7 +6,7 @@
 
         protected $sobrenome = 'Silva';
         
-		public $humor = 'Feliz';
+        public $humor = 'Feliz';
 
         public function __get($attr) {
             return $this->$attr;
