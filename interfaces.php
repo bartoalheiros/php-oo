@@ -60,4 +60,28 @@
         public function respirar() {
             echo 'Respirar';
         }
+
+        public function conversar() {
+            echo 'Conversar';
+        }
+
     }
+
+    class Baleia implements MamiferoInterface, AquaticoInterface {
+        public function nadar() {
+            echo 'Nadar';
+        }
+
+        public function respirar() {
+            echo 'Respirar';
+        }
+
+        protected function esguichar() {
+            echo 'Esguichar';
+        }
+
+    }
+
+    //---------------------------------------------------------------
+
+    
