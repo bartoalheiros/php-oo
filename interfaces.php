@@ -84,4 +84,20 @@
 
     //---------------------------------------------------------------
 
-    
+    interface AnimalInterface {
+        public function comer();
+    }
+
+    interface AveInterface extends AnimalInterface {
+        public function voar();
+    }
+
+    class Papagaio implements AveInterface {
+        public function voar() {
+            echo 'Voar';
+        }
+
+        public function comer() {
+            echo 'Comer';
+        }
+    }
