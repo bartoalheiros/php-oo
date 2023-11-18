@@ -4,6 +4,13 @@
 
     class Cliente implements CadastroInterface {
         public $nome = 'Jorge';
+
+        public function __construct() {
+            echo '<pre>';
+            print_r(get_class_methods($this));
+            echo '</pre>';
+        }
+
         public function __get($attr) {
             return $this->$attr;
         }
@@ -21,6 +28,13 @@
 
     class Cliente implements CadastroInterface {
         public $nome = 'Jamilton';
+
+        public function __construct() {
+            echo '<pre>';
+            print_r(get_class_methods($this));
+            echo '</pre>';
+        }
+
         public function __get($attr) {
             return $this->$attr;
         }
