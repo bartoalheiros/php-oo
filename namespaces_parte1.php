@@ -2,7 +2,7 @@
 
     namespace A;
 
-    class Cliente implements CadastroInterface {
+    class Cliente implements \B\CadastroInterface {
         public $nome = 'Jorge';
 
         public function __construct() {
@@ -18,6 +18,10 @@
         public function salvar() {
             echo 'Salvar';
         }
+
+        public function remover() {
+            echo 'Remover';
+        }
     }
 
     interface CadastroInterface {
@@ -26,7 +30,7 @@
 
     namespace B;
 
-    class Cliente implements CadastroInterface {
+    class Cliente implements \A\CadastroInterface {
         public $nome = 'Jamilton';
 
         public function __construct() {
@@ -42,12 +46,16 @@
         public function remover() {
             echo 'Remover';
         }
+
+        public function salvar() {
+            echo 'Salvar';
+        }
     }
 
     interface CadastroInterface {
         public function remover();
     }
 
-    $c = new \A\Cliente();
+    $c = new \B\Cliente();
     print_r($c);
     echo $c->__get('nome');
