@@ -1,3 +1,3 @@
 <?php
 
-    //print
+    print_r($_POST);
