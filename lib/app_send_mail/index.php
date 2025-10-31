@@ -23,18 +23,18 @@
 					<div class="card-body font-weight-bold">
 						<form action=processa_envio.php method="post">
 							<div class="form-group">
-								<label for="para">Para</label>
-								<input type="text" class="form-control" id="para" placeholder="joao@dominio.com.br">
+								<label for="destino">Para</label>
+								<input type="text" class="form-control" id="destino" name="destino" placeholder="joao@dominio.com.br">
 							</div>
 
 							<div class="form-group">
 								<label for="assunto">Assunto</label>
-								<input type="text" class="form-control" id="assunto" placeholder="Assundo do e-mail">
+								<input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assundo do e-mail">
 							</div>
 
 							<div class="form-group">
 								<label for="mensagem">Mensagem</label>
-								<textarea class="form-control" id="mensagem"></textarea>
+								<textarea class="form-control" id="mensagem" name="mensagem"></textarea>
 							</div>
 
 							<button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
