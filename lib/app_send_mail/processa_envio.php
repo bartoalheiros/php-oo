@@ -57,7 +57,7 @@
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'alheirosbwebweb@gmail.com';                     //SMTP username
-        $mail->Password   = '!@#$B189';                               //SMTP password
+        $mail->Password   = 'elymceljfpwxqeio';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
         $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
@@ -75,8 +75,8 @@
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'Oi. Eu sou o assunto.';
-        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mail->Body    = 'Oi, Eu sou o conteúdo do <strong>e-mail</strong>';
+        $mail->AltBody = 'Oi. Eu sou o conteúdo do e-mail.';
 
         $mail->send();
         echo 'Message has been sent';
