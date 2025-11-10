@@ -16,6 +16,7 @@
         private $destino = null;
         private $assunto = null;
         private $mensagem = null;
+        public $status = array( 'codigo_status' => null, 'descricao_status' => '');
 
         public function __get($atributo) {
             return $this->$atributo;
@@ -46,7 +47,7 @@
 
     if(!($mensagem->mensagemValida())) {
         echo 'Mensagem não é válida';
-        die();
+        header('Location: index.php');
     } 
 
     $mail = new PHPMailer(true);
@@ -79,8 +80,47 @@
         $mail->AltBody = 'Oi. Eu sou o conteúdo do e-mail.';
 
         $mail->send();
-        echo 'Message has been sent';
+
+        $mensagem->status['codigo_status'] = 1;
+        $mensagem->status['descricao_status'] = 'E-mail enviado com sucesso';
+
     } catch (Exception $e) {
-        echo "Não foi possível enviar este e-mail! Por favor tente novamente mais tarde.";
-        echo "Detalhes do erro:" . $mail->ErrorInfo;
+
+        $mensagem->status['codigo_status'] = 2;
+        $mensagem->status['descricao_status'] = 'Não foi possível enviar o e-mail. Detalhes do erro:' . $mail->ErrorInfo;
     }
+?>
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="py-3 text-center">
+				<img class="d-block mx-auto mb-2" src="logo.png" alt="" width="72" height="72">
+				<h2>Send Mail</h2>
+				<p>Seu app de envio de e-mails particular!</p>
+			</div>
+
+            <class class="row">
+                <div class="col-md-12">
+                    <? if($mensagem->status['codigo_status'] == 1) { ?>
+
+                        <div class="container">
+                            <h1 class="display-4 text-success">Sucesso</h1>
+                            <p><?= $mensagem->status['descricao_status'] ?></p>
+                        </div>
+
+                    <? } ?>   
+                    <? if($mensagem->status['codigo_status'] == 2) { ?>
+                        
+                    <? } ?>   
+                </div>
+            </class>
+        </div>
+        
+    </body>
+</html>
