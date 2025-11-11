@@ -107,17 +107,25 @@
 
             <class class="row">
                 <div class="col-md-12">
-                    <? if($mensagem->status['codigo_status'] == 1) { ?>
+                    <?php if($mensagem->status['codigo_status'] == 1) { ?>
 
                         <div class="container">
                             <h1 class="display-4 text-success">Sucesso</h1>
-                            <p><?= $mensagem->status['descricao_status'] ?></p>
+                            <p><?php $mensagem->status['descricao_status'] ?></p>
+                            <a href="index.php" class="btn btn-success btn-lg mt-5 text-white">Voltar</a>
                         </div>
 
-                    <? } ?>   
-                    <? if($mensagem->status['codigo_status'] == 2) { ?>
-                        
-                    <? } ?>   
+                    <?php } ?>
+                       
+                    <?php if($mensagem->status['codigo_status'] == 2) { ?>
+                          
+                        <div class="container">
+                            <h1 class="display-4 text-danger">Ops!</h1>
+                            <p><?php $mensagem->status['descricao_status'] ?></p>
+                            <a href="index.php" class="btn btn-success btn-lg mt-5 text-white">Voltar</a>
+                        </div>
+
+                    <?php } ?>   
                 </div>
             </class>
         </div>
