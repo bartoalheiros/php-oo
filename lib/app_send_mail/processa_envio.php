@@ -7,10 +7,7 @@
     require "./bibliotecas/PHPMailer/SMTP.php";
 
     use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-
-    // print_r($_POST);
 
     class Mensagem {
         private $destino = null;
@@ -41,9 +38,6 @@
     $mensagem->__set('assunto', $_POST['assunto']);
     $mensagem->__set('mensagem', $_POST['mensagem']);
     
-    
-    // print('<br>');
-    // print_r($mensagem);
 
     if(!($mensagem->mensagemValida())) {
         echo 'Mensagem não é válida';
@@ -65,19 +59,12 @@
         //Recipients
         $mail->setFrom('alheirosbwebweb@gmail.com', 'Web Completo Remetente');
         $mail->addAddress('alheirosbwebweb@gmail.com', 'Web Completo Destinatário');     //Add a recipient
-        //$mail->addReplyTo('info@example.com', 'Information');
-        //$mail->addCC('cc@example.com');
-        //$mail->addBCC('bcc@example.com');
-
-        //Attachments
-        //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-        //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
+      
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Oi. Eu sou o assunto.';
-        $mail->Body    = 'Oi, Eu sou o conteúdo do <strong>e-mail</strong>';
-        $mail->AltBody = 'Oi. Eu sou o conteúdo do e-mail.';
+        $mail->Subject = $mensagem->__get('assunto');
+        $mail->Body    = $mensagem->__get('mensagem');
+        $mail->AltBody = 'É necessário utilizar um cliente que tenha suporte a HTML para ter acesso ao conteúdo total desta mensagem.';
 
         $mail->send();
 
@@ -88,6 +75,7 @@
 
         $mensagem->status['codigo_status'] = 2;
         $mensagem->status['descricao_status'] = 'Não foi possível enviar o e-mail. Detalhes do erro:' . $mail->ErrorInfo;
+        //pode ser adicionado aqui uma lógica para salvar o erro em log, para posteriormente ser analisado por algum programador
     }
 ?>
 
@@ -111,7 +99,7 @@
 
                         <div class="container">
                             <h1 class="display-4 text-success">Sucesso</h1>
-                            <p><?php $mensagem->status['descricao_status'] ?></p>
+                            <p><?= $mensagem->status['descricao_status'] ?></p>
                             <a href="index.php" class="btn btn-success btn-lg mt-5 text-white">Voltar</a>
                         </div>
 
@@ -121,7 +109,7 @@
                           
                         <div class="container">
                             <h1 class="display-4 text-danger">Ops!</h1>
-                            <p><?php $mensagem->status['descricao_status'] ?></p>
+                            <p><?= $mensagem->status['descricao_status'] ?></p>
                             <a href="index.php" class="btn btn-success btn-lg mt-5 text-white">Voltar</a>
                         </div>
 
