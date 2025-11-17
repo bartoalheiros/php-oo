@@ -58,7 +58,7 @@
 
         //Recipients
         $mail->setFrom('alheirosbwebweb@gmail.com', 'Web Completo Remetente');
-        $mail->addAddress('alheirosbwebweb@gmail.com', 'Web Completo Destinatário');     //Add a recipient
+        $mail->addAddress($mensagem->__get('destino'));     //Add a recipient
       
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
