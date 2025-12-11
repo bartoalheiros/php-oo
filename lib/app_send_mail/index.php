@@ -24,7 +24,7 @@
 						<form action=processa_envio.php method="post">
 							<div class="form-group">
 								<label for="destino">Para</label>
-								<input type="text" class="form-control" id="destino" name="destino" placeholder="joao@dominio.com.br">
+								<input type="text" class="form-control" id="destino" name="destino" value="alheirosbwebweb@gmail.com" readonly>
 							</div>
 
 							<div class="form-group">
